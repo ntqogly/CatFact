@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#DAD8D8"
+    android:background="@color/white"
     tools:context=".MainActivity">
 
     <TextView
@@ -46,7 +46,7 @@
         tools:ignore="MissingConstraints" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/catImageView"
         android:layout_width="96dp"
         android:layout_height="74dp"
         app:layout_constraintBottom_toTopOf="@+id/button"
