@@ -34,5 +34,4 @@ class MainActivity : AppCompatActivity() {
         binding.catImageView.visibility = INVISIBLE
         binding.button.isEnabled = true
     }
-
 }
