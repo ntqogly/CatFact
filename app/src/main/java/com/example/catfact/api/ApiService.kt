@@ -7,4 +7,5 @@ interface ApiService {
 
     @GET("fact?max_length=140")
     suspend fun loadCatFact(): CatFact
+
 }
