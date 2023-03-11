@@ -24,29 +24,23 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.button.setOnClickListener {
-
             lifecycleScope.launch {
-
-                binding.tvCatFact.visibility = INVISIBLE
                 load()
-                binding.tvCatFact.visibility = VISIBLE
             }
         }
     }
 
-    private fun chronometer() {
+    private suspend fun load() {
         binding.chronometer.base = SystemClock.elapsedRealtime()
         binding.chronometer.start()
-    }
-
-    private suspend fun load() {
-        chronometer()
-
+        binding.tvCatFact.visibility = INVISIBLE
         binding.catImageView.visibility = VISIBLE
         binding.button.isEnabled = false
         val retrofit = ApiFactory.getApiService().loadCatFact()
         binding.tvCatFact.text = retrofit.fact
+        binding.chronometer.stop()
         binding.catImageView.visibility = INVISIBLE
         binding.button.isEnabled = true
+        binding.tvCatFact.visibility = VISIBLE
     }
 }
