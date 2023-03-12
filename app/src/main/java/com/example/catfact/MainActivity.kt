@@ -34,12 +34,16 @@ class MainActivity : AppCompatActivity() {
         binding.chronometer.base = SystemClock.elapsedRealtime()
         binding.chronometer.start()
         binding.tvCatFact.visibility = INVISIBLE
-        binding.catImageView.visibility = VISIBLE
+        runOnUiThread {
+            binding.catImageView.visibility = VISIBLE
+        }
         binding.button.isEnabled = false
         val retrofit = ApiFactory.getApiService().loadCatFact()
         binding.tvCatFact.text = retrofit.fact
         binding.chronometer.stop()
-        binding.catImageView.visibility = INVISIBLE
+        runOnUiThread {
+            binding.catImageView.visibility = INVISIBLE
+        }
         binding.button.isEnabled = true
         binding.tvCatFact.visibility = VISIBLE
     }
